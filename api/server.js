@@ -9,6 +9,7 @@ const newsRoutes = require('./routes/newsRouter')
 const enterprisesRoutes = require('./routes/enterprisesRouter')
 const communityGroupsRoutes = require('./routes/communityGroupRouter')
 const calendarRoutes = require('./routes/calendarEventsRouter')
+const communityRoutes = require('./routes/communityRouter')
 const sequelize = require('./config/database.js')
 const cors = require('cors')
 const dotenv = require('dotenv')
@@ -29,6 +30,7 @@ app.use('/api/groups', communityGroupsRoutes)
 app.use('/api/calendar', calendarRoutes)
 app.use('/api/courses', courseRoutes)
 app.use('/api/news', newsRoutes)
+app.use('/api/communities', communityRoutes)
 
 // home page response
 app.get('/', (request, response) => {
