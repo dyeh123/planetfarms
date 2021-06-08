@@ -1,52 +1,27 @@
-.card-container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.card-row-1 {
-  align-items: flex-start;
-  display: flex;
-  min-width: 500px;
-  flex-direction: column;
-  margin: 40px 10px 10px;
-}
-
-.card-1-allCommunities {
-  align-items: flex-end;
-  background-image: url(https://anima-uploads.s3.amazonaws.com/projects/60616b2488353a18d38d9e60/releases/606aaba9f36dd20182120705/img/card-1@1x.png);
-  background-position: 20% 50%;
-  background-size: cover;
-  border-radius: 4px;
-  display: flex;
+.community-card > div {
   height: 528px;
-  overflow: hidden;
   padding: 24px;
-  width: 100%;    
 }
 
 .card-1-text {
-  align-items: flex-start;
+  justify-content: flex-end;
   display: flex;
   flex-direction: column;
-  min-height: 200px;
-  width: 357px;
-}
-
-.card-1-title {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  min-height: 112px;
-  width: 357px;
+  height: 100%;
+  width: 60%;
 }
 
 .text-1-card {
-  height: 80px;
   letter-spacing: 0px;
   line-height: 40px;
   min-height: 80px;
-  width: 445px;
+  width: 80%;
+  /* width: 445px; */
+}
+
+.text-1-description {
+  color: var(--primary-white);
+  font-size: 18px;
 }
 
 .valign-text-middle {
@@ -76,4 +51,10 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+}
+
+.join-community-btn {
+  margin-top: 40px;
+  font-weight: 600;
+  font-size: 16px;
 }

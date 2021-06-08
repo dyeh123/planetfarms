@@ -19,7 +19,7 @@ const InputComponent = ({ text, error, image, changeHandler, name, autoFocus }) 
               className='username ibmplexsans-regular-normal-monsoon-16px'
               placeholder={name && name}
               value={text}
-              onChange={(e) => changeHandler(e)}
+              onChange={(e) => changeHandler(e.target.value)}
               id='userInput'
               autoFocus={autoFocus === 'autoFocus' && true}
             />

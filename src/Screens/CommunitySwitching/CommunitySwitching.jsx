@@ -1,40 +1,157 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useLocation } from "react-router";
+import { Link } from "react-router-dom";
+import { listCommunities, searchCommunities } from "../../actions/CommunityActions";
+import Button from "../../Components/Button/Button";
 import CommunitiesCard from "../../Components/CommunitiesCard/CommunitiesCard";
+import DragDrop from "../../Components/DragDrop/DragDrop";
 import Filter from "../../Components/Filter/Filter";
+import InputComponent from "../../Components/Input/InputComponent";
+import CollectionModalHeader from "../../Components/NewsCreateModal/CollectionModalHeader";
 import SearchComponent from "../../Components/SearchComponent/SearchComponent";
 import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
+import useSizeFinder from "../../utils/SizeFinder";
 import "./community-switching.css";
 
+const communityData = [
+  {
+    _id: 1,
+    title: "Australian farmers community",
+    followers: " 10 376 followers",
+    bgImage: '/img/bg-image2.svg',
+  },
+
+  {
+    _id: 2,
+
+    title: "Europe and Australian framers community",
+    followers: " 10 476 followers",
+    bgImage: "/img/Card-2.svg",
+  },
+  {
+    _id: 3,
+    title: "Asian and African framers community",
+    followers: " 11 476 followers",
+    bgImage: "/img/Card-1.svg",
+  },
+  {
+    _id: 4,
+    title: "Indian and Nepali framers community",
+    followers: " 15 476 followers",
+    bgImage: "/img/Card-2.svg",
+  },
+  {
+    _id: 5,
+    title: "Australian farmers community",
+    followers: " 10 376 followers",
+    bgImage: "/img/Card-1.svg",
+  },
+  {
+    _id: 6,
+    title: "Europe and Australian framers community",
+    followers: " 10 476 followers",
+    bgImage: "/img/Card-1.svg",
+  },
+];
+const nav = [{
+  label: 'All Communities',
+  link: '/community-switching'
+}, {
+  label: 'My Communities',
+  link: '/community-switching/my-communities'
+}]
+
 function App() {
+  const[modalActive, setModalActive] = useState(false);
   return (
+    <>
+    {modalActive && <CommunityModal setActive={setModalActive} />}
     <DashboardLayout title="All Communities">
-      <AllCommunities />
+      <AllCommunities setModalActive={setModalActive} />
     </DashboardLayout>
+    </>
   );
 }
 
 export default App;
 
-function AllCommunities(props) {
+function AllCommunities ({setModalActive}) {
+  
+  const [search, setSearch] = useState(null)
+
+   const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+  const communitiesState = useSelector((state) => state.listCommunities);
+  const {error, loading, communities} = communitiesState
+  
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+    if(!search) dispatch(listCommunities());
+    if(search) dispatch(searchCommunities(search));
+  }, [search, dispatch])
   return (
-    <div className="x07-1-0-all-communities">
-      <div className="community-container">
-        <div className="flex-row-4">
-          {/* <SearchComponent className={"search border-1px-onyx"} />
-          <div className="library-sub-header-2">
-              <Filter />
-              </div> */}
-               <div className="library-sub-header">
-              <div className="library-sub-header-1">
-              <SearchComponent className={"search border-1px-onyx"} /> 
-              </div>
-              <div className="library-sub-header-2 filter">
-              <Filter />
-              </div>
-           </div>
+    <>
+        <CommunityHeader setActive={setModalActive} search={search} setSearch={setSearch} />
+        {communities.length > 0 && <CommunitiesCard data={communities} />}
+    </>)  
+}
+
+const CommunityHeader = ({setActive, search, setSearch}) => {
+  const { pathname } = useLocation()
+  const history = useHistory()
+  const windowWidth = useSizeFinder();
+  
+  return (
+    <div className='library-main-header-container'>
+      <div className='library-container'>
+        {windowWidth > 839
+          ? <>
+            <ul className='library-list-container'>
+              {nav.map((menu) => (
+                <li>
+                  <Link className={`nav-link ${(pathname === menu.link) ? 'library-list-item active' : 'library-list-item'}`} to={menu.link}>{menu.label}</Link>
+                </li>
+              ))}
+            </ul>
+            <SearchComponent search={search} setSearch={setSearch} className='search-btn margin-0' />
+          </>
+          : <>
+            <Filter data={nav} newFilter='new' />
+            <SearchComponent search={search} setSearch={setSearch} className='search search-btn margin-0' />
+            </>}
+      </div>
+      <div className='library-sub-header'>
+        <div className='library-sub-header-1'>
+          <div className='library-btn-container'><button className='default-btn' onClick={() => setActive(true)}>Create Community</button></div>
         </div>
-        <CommunitiesCard />
+        <div className='library-sub-header-2'>
+          <Filter />
+        </div>
       </div>
     </div>
-  );
+  )
+}
+
+const CommunityModal = ({setActive}) => {
+  const [files, setFiles] = useState();
+  const [name, setName] = useState('');
+  const [desc, setDesc] = useState('');
+  const [userId, setUserId] = useState(0);
+  console.log(name);
+  return(
+    <div className='collection-modal-container'>
+        <div>
+          <div className='collection-modal-inner-container'>
+            <CollectionModalHeader title='Create Community' clickHandler={setActive} />
+            <DragDrop files={files} onChange={setFiles} />
+            <InputComponent name="Community Name" text={name} changeHandler={setName} />
+            <InputComponent name="Description" text={desc} changeHandler={setDesc} />
+            <InputComponent name="User Id" text={userId} changeHandler={setUserId} />
+            <Button name="Create Community" />
+          </div>
+        </div>
+      </div>
+  )
 }
