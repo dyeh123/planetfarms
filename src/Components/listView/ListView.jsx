@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './ListView.css'
 
 const ListView = ({ data, title, setNewCollection, setModalActive, modalActive }) => {
+  const [active, setActive] = useState(false);
+
   return (
     <>
       <div className='listview-container'>
