@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 import './cabinet-user-info.css'
-import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
-import { Link, useLocation } from 'react-router-dom';
-import BackButton from '../../Components/BackButton/BackButton';
-import useSizeFinder from '../../utils/SizeFinder';
-import Filter from '../../Components/Filter/Filter';
+import DashboardLayout from '../../Layout/DashboardLayout/DashboardLayout'
+import { Link, useLocation } from 'react-router-dom'
+import BackButton from '../../Components/BackButton/BackButton'
+import useSizeFinder from '../../utils/SizeFinder'
+import Filter from '../../Components/Filter/Filter'
 
 const data = [{
   label: 'Payment Information',
@@ -14,56 +14,55 @@ const data = [{
   link: '/userinfo/reports'
 }]
 
-function App() {
+function App () {
   return (
-    <DashboardLayout title="My Profile">
+    <DashboardLayout title='My Profile'>
       <CabinetUserInfo />
     </DashboardLayout>
-  );
+  )
 }
-export default App;
+export default App
 
-function CabinetUserInfo() {
-  const {pathname} = useLocation();
-  const windowWidth = useSizeFinder();
+function CabinetUserInfo () {
+  const { pathname } = useLocation()
+  const windowWidth = useSizeFinder()
   return (
-    <div className="payment-container">
-      <div className="payment-flex-col-4">
-          <BackButton location={"/dashboard"} />
+    <div className='payment-container'>
+      <div className='payment-flex-col-4'>
+        <BackButton location='/dashboard' />
         {/* user details form comes here */}
-        <div className="payment-card-container border-1px-onyx">
-          <div className="payment-info">
-            {windowWidth > 600 
-            ? <ul className='library-list-container'>
-              {data.map((menu) => (
-                <li>
-                  <Link className={`nav-link ${(pathname === menu.link) ? 'library-list-item active' : 'library-list-item'}`} to={menu.link}>{menu.label}</Link>
-                </li>
-              ))}
-            </ul>
-            : <div className="payment-filter-container"> <Filter data={data} noImage="noImage" newFilter={true} />  </div>
-          }
+        <div className='payment-card-container border-1px-onyx'>
+          <div className='payment-info'>
+            {windowWidth > 600
+              ? <ul className='library-list-container'>
+                {data.map((menu) => (
+                  <li>
+                    <Link className={`nav-link ${(pathname === menu.link) ? 'library-list-item active' : 'library-list-item'}`} to={menu.link}>{menu.label}</Link>
+                  </li>
+                ))}
+                </ul>
+              : <div className='payment-filter-container'> <Filter data={data} noImage='noImage' newFilter />  </div>}
           </div>
-          <p className="payment-text ibmplexsans-regular-normal-quarter-spanish-white-16px">
+          <p className='payment-text ibmplexsans-regular-normal-quarter-spanish-white-16px'>
             You can connect these payment services:
           </p>
-          <div className="payment-option-container user-payment">
-              <button><img src="/img/stripe.svg" alt="stripe payment" /></button>
-              <button><img src="/img/paypal.svg" alt="paypal payment" /></button>
-              <button><img src="/img/Coinbase.svg" alt="coinbase payment" /></button>
+          <div className='payment-option-container user-payment'>
+            <button><img src='/img/stripe.svg' alt='stripe payment' /></button>
+            <button><img src='/img/paypal.svg' alt='paypal payment' /></button>
+            <button><img src='/img/Coinbase.svg' alt='coinbase payment' /></button>
           </div>
-          <div className="or-icon-container">
-          <img className="or-icon user-info-or-icon" src="/img/or.svg" alt="or icon"/>
+          <div className='or-icon-container'>
+            <img className='or-icon user-info-or-icon' src='/img/or.svg' alt='or icon' />
           </div>
-          <div className="add-card border-0-5px-quarter-spanish-white">
+          <div className='add-card border-0-5px-quarter-spanish-white'>
             {/* <div className="frame-1933"></div> */}
-            <div className="add-card-container">
-              <div className="plus-icon">
-                <div className="plus-icon-image">
-                  <img src="/img/plus-icon.svg" />
+            <div className='add-card-container'>
+              <div className='plus-icon'>
+                <div className='plus-icon-image'>
+                  <img src='/img/plus-icon.svg' />
                 </div>
               </div>
-              <div className="add-my-card valign-text-middle ibmplexsans-semi-bold-quarter-spanish-white-16px">
+              <div className='add-my-card valign-text-middle ibmplexsans-semi-bold-quarter-spanish-white-16px'>
                 Add my card
               </div>
             </div>
@@ -71,14 +70,5 @@ function CabinetUserInfo() {
         </div>
       </div>
     </div>
-  );
+  )
 }
-
-
-
-
-
-
-
-
-
