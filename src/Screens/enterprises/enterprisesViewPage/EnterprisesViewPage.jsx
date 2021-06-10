@@ -44,7 +44,7 @@ import CommunityGroupPost from "../../../Components/CommunityGroupPost/Community
 import FarmsDetailsCard from "../../../Components/FarmsDetailsCard/FarmsDetailsCard";
 import FilterSearch from "../../../Components/FilterSearch/FilterSearch";
 import DashboardLayout from "../../../Layout/DashboardLayout/DashboardLayout";
-import "./enterprises-view-page.css";
+import "./EnterprisesViewPage.css";
 
 function App() {
   return (
