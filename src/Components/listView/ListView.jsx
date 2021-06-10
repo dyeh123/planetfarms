@@ -45,3 +45,4 @@ const ListViewButton = ({ setModalActive, modalActive }) => {
     </div>
   )
 }
+

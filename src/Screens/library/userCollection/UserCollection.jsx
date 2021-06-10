@@ -1,22 +1,13 @@
 import { useState } from 'react'
-<<<<<<< HEAD
 import './UserCollection.css'
 
 import LibraryHeader from '../../../Components/libraryHeader/LibraryHeader'
-=======
-import './user-collection.css'
-
-import LibraryHeader from '../../../Components/LibraryHeader/LibraryHeader'
->>>>>>> 54dc657... rename
 import DashboardLayout from '../../../Layout/DashboardLayout/DashboardLayout'
 import CollectionModal from '../../../Components/CollectionModal/CollectionModal'
 import SimpleModal from '../../../Components/SimpleModal/SimpleModal'
 import { farming, groupCollection } from '../CollectionData'
 import GroupModal from '../../../Components/GroupModal/GroupModal'
-<<<<<<< HEAD
-=======
 import CardLayout from '../../../Layout/cardLayout/CardLayout'
->>>>>>> 54dc657... rename
 
 const UserCollection = () => {
   const [active, setActive] = useState(false)
@@ -48,15 +39,6 @@ const UserCollection = () => {
         </div>
 
         <h4 className='farming-collection-header'>Farming Collections</h4>
-<<<<<<< HEAD
-        <div className='farming-main-container'>
-
-          {
-                farming.map(item => {
-                  return (
-                    <div className='farming-inner-container' style={{ backgroundImage: `url(${item.img})` }}>
-=======
-
         <CardLayout data={farming}>
           {
                 farming.map(item => {
@@ -70,7 +52,6 @@ const UserCollection = () => {
                         backgroundRepeat: 'no-repeat'
                       }}
                     >
->>>>>>> 54dc657... rename
                       <button className='trasnsparent-btn btn-positioning'>
                         <b>{item.users}</b>  <span>users saved</span>
                       </button>
@@ -87,11 +68,7 @@ const UserCollection = () => {
                   )
                 })
             }
-<<<<<<< HEAD
-        </div>
-=======
         </CardLayout>
->>>>>>> 54dc657... rename
       </DashboardLayout>
     </>
   )
