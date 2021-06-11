@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState } from 'react'
 import CollectionModal from '../../../Components/CollectionModal/CollectionModal'
 import GroupModal from '../../../Components/GroupModal/GroupModal'
