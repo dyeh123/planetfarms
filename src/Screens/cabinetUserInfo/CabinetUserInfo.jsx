@@ -1,5 +1,5 @@
 import React from 'react'
-import './cabinet-user-info.css'
+import './CabinetUserInfo.css'
 import DashboardLayout from '../../Layout/DashboardLayout/DashboardLayout'
 import { Link, useLocation } from 'react-router-dom'
 import BackButton from '../../Components/BackButton/BackButton'
@@ -52,7 +52,9 @@ function CabinetUserInfo () {
             <button><img src='/img/Coinbase.svg' alt='coinbase payment' /></button>
           </div>
           <div className='or-icon-container'>
-            <img className='or-icon user-info-or-icon' src='/img/or.svg' alt='or icon' />
+            <div className="or-icon-line"></div>
+            <span>Or</span>
+            <div className="or-icon-line"></div>
           </div>
           <div className='add-card border-0-5px-quarter-spanish-white'>
             {/* <div className="frame-1933"></div> */}
