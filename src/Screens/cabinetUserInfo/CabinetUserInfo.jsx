@@ -52,9 +52,9 @@ function CabinetUserInfo () {
             <button><img src='/img/coinbase.svg' alt='coinbase payment' /></button>
           </div>
           <div className='or-icon-container'>
-            <div className="or-icon-line"></div>
+            <div className='or-icon-line' />
             <span>Or</span>
-            <div className="or-icon-line"></div>
+            <div className='or-icon-line' />
           </div>
           <div className='add-card border-0-5px-quarter-spanish-white'>
             {/* <div className="frame-1933"></div> */}
