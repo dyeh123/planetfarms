@@ -49,7 +49,7 @@ function CabinetUserInfo () {
           <div className='payment-option-container user-payment'>
             <button><img src='/img/stripe.svg' alt='stripe payment' /></button>
             <button><img src='/img/paypal.svg' alt='paypal payment' /></button>
-            <button><img src='/img/Coinbase.svg' alt='coinbase payment' /></button>
+            <button><img src='/img/coinbase.svg' alt='coinbase payment' /></button>
           </div>
           <div className='or-icon-container'>
             <div className="or-icon-line"></div>
