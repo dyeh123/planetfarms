@@ -1,7 +1,7 @@
 // const Sequelize = require('sequelize')
-// const {sequelize} = require('./index');
+// const db = require('./index');
 
-// const Community = sequelize.define('communities',
+// const Community = db.define('communities',
 //   {
 //     name: {
 //       type: Sequelize.STRING
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'communityId',
         as: 'followers'
       })
-      Community.belongsTo(models.User, { as: 'creator', foreignKey: 'creatorId' })
+    Community.belongsTo(models.User, {foreignKey: 'creatorId', as: 'creator' })
   };
   return Community;
 }
