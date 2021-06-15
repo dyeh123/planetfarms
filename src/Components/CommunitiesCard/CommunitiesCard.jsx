@@ -1,6 +1,6 @@
 import React from 'react'
-import './communities-card.css'
-
+import './CommunitiesCard.css'
+import CardLayout from '../../Layout/cardLayout/CardLayout'
 const communityData = [
   {
     _id: 1,
@@ -46,6 +46,7 @@ const CommunitiesCard = () => {
   return (
     <>
       <div className='communities-card-container'>
+        <CardLayout>
         {communityData.map((community) => {
           return (
             <div key={community._id} className='card-row-1'>
@@ -68,6 +69,7 @@ const CommunitiesCard = () => {
             </div>
           )
         })}
+        </CardLayout>
       </div>
     </>
   )

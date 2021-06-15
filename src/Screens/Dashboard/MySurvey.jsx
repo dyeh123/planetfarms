@@ -1,8 +1,8 @@
 import React from "react";
 import BackButton from "../../Components/BackButton/BackButton";
-import SurveyCard from "../../Components/SurveyCard/SurveyCard";
+import SurveyCard from "../../Components/surveyCard/SurveyCard";
 import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
-import "./my-survey.css";
+import "./MySurvey.css";
 
 const surveyData = [
     {

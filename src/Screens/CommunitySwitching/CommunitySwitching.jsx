@@ -1,9 +1,9 @@
 import React from 'react'
-import CommunitiesCard from '../../Components/CommunitiesCard/CommunitiesCard'
+import CommunitiesCard from '../../Components/communitiesCard/CommunitiesCard'
 import Filter from '../../Components/Filter/Filter'
 import SearchComponent from '../../Components/SearchComponent/SearchComponent'
 import DashboardLayout from '../../Layout/DashboardLayout/DashboardLayout'
-import './community-switching.css'
+import './CommunitySwitching.css'
 
 function App () {
   return (

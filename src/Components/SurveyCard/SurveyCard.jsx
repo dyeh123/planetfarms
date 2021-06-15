@@ -1,10 +1,10 @@
 import React from 'react'
-import './survey-card.css'
-
+import './SurveyCard.css'
+import CardLayout from "../../Layout/cardLayout/CardLayout";
 
 const SurveyCard = ({data}) => {
     return (
-        <>
+        <CardLayout>
         {data.map((data)=>{
             return(
                 <>
@@ -49,7 +49,7 @@ const SurveyCard = ({data}) => {
                 </>
             )
         })}
-        </>
+        </CardLayout>
     )
 }
 

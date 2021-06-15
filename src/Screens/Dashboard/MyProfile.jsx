@@ -1,5 +1,5 @@
 import React from 'react'
-import './my-profile.css'
+import './MyProfile.css'
 import DashboardLayout from '../../Layout/DashboardLayout/DashboardLayout'
 import BackButton from '../../Components/BackButton/BackButton'
 import {
