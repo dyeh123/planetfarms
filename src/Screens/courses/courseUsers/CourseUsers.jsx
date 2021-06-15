@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Background from '../../../Components/Background/Background'
+import Background from '../../../Components/background/Background'
 import CoursesHeader from '../../../Components/coursesHeader/CoursesHeader'
 import CardLayout from '../../../Layout/cardLayout/CardLayout'
 import DashboardLayout from '../../../Layout/DashboardLayout/DashboardLayout'

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import BackButton from '../../../Components/BackButton/BackButton'
 import Button from '../../../Components/Button/Button'
-import CourseDescription from '../../../Components/MyCoursesCard/CourseDescription/CourseDescription'
+import CourseDescription from '../../../Components/myCoursesCard/CourseDescription/CourseDescription'
 import {PurchaseModal, PurchaseSuccessModal} from '../../../Components/PurchaseModal/PurchaseModal'
 import DashboardLayout from '../../../Layout/DashboardLayout/DashboardLayout'
 import './course-page.css'
