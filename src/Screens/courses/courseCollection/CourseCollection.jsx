@@ -73,7 +73,7 @@ export const BackgroundUserCard = ({ item, btnName, subName }) => {
         <button className='subs'>
           <span>{item.subscribers} {subName}</span>
         </button>
-      <CourseUserContent item={item} btnName={btnName} />
+        <CourseUserContent item={item} btnName={btnName} />
       </div>
     </Background>
   )

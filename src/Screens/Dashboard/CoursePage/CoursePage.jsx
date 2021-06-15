@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import BackButton from '../../../Components/BackButton/BackButton'
 import Button from '../../../Components/Button/Button'
 import CourseDescription from '../../../Components/myCoursesCard/CourseDescription/CourseDescription'
-import {PurchaseModal, PurchaseSuccessModal} from '../../../Components/PurchaseModal/PurchaseModal'
+import { PurchaseModal, PurchaseSuccessModal } from '../../../Components/PurchaseModal/PurchaseModal'
 import DashboardLayout from '../../../Layout/DashboardLayout/DashboardLayout'
 import './course-page.css'
 
-function App ({unpaid}) {
+function App ({ unpaid }) {
   const [feedbackModal, setFeedbackModal] = useState(false)
   const [purchaseModal, setPurchaseModal] = useState(false)
   const [purchaseSuccessModal, setPurchaseSuccessModal] = useState(false)
@@ -29,7 +29,7 @@ function CoursePage ({ setFeedbackModal, unpaid, setPurchaseModal }) {
     <div className='course-page'>
       <div className='course-page-flex-col-4'>
         <BackButton location='/mycourse' />
-        <CourseDescription setFeedbackModal={setFeedbackModal} unpaid={unpaid} setPurchaseModal={setPurchaseModal}/>
+        <CourseDescription setFeedbackModal={setFeedbackModal} unpaid={unpaid} setPurchaseModal={setPurchaseModal} />
       </div>
     </div>
   )
