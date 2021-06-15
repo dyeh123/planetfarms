@@ -11,7 +11,7 @@ const communityGroupsRoutes = require('./routes/communityGroupRouter')
 const calendarRoutes = require('./routes/calendarEventsRouter')
 const communityRoutes = require('./routes/communityRouter')
 const communityUsersRoutes = require('./routes/communityUserRouter');
-const sequelize = require('./config/database.js')
+const {sequelize} = require('./models/index');
 const cors = require('cors')
 const dotenv = require('dotenv')
 
