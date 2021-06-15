@@ -1,6 +1,6 @@
 import React from "react";
 import BackButton from "../../Components/BackButton/BackButton";
-import MyCoursesCard from "../../Components/MyCoursesCard/MyCoursesCard";
+import MyCoursesCard from "../../Components/myCoursesCard/MyCoursesCard";
 import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
 import "./my-courses.css";
 

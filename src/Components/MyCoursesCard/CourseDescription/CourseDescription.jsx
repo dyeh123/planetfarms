@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import Button from '../../Button/Button'
-import './course-description.css'
+import './CourseDescription.css'
 import MoreCourse from './MoreCourse'
 import useSizeFinder from '../../../utils/SizeFinder'
 

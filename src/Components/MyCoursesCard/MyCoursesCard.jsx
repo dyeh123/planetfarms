@@ -1,6 +1,7 @@
 import React from 'react'
-import Background from '../Background/Background'
-import './my-courses-card.css'
+import Background from '../background/Background'
+import CardLayout from '../../Layout/cardLayout/CardLayout'
+import './MyCoursesCard.css'
 
 const courseData = [
   {
@@ -45,15 +46,15 @@ const MyCoursesCard = () => {
     <div className='my-course-container-wrapper'>
       <div className='my-course-inner-container'>
         <h4>My courses</h4>
-        <div className='my-course-card-container'>
+        <CardLayout>
           <CourseCard data={courseData} />
-        </div>
+        </CardLayout>
       </div>
       <div className='my-course-inner-container'>
         <h4>Special for you</h4>
-        <div className='my-course-card-container'>
+        <CardLayout>
           <CourseCard data={specialCourseData} />
-        </div>
+        </CardLayout>
       </div>
     </div>
   )
