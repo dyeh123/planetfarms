@@ -1,6 +1,7 @@
 import React from "react";
-import "./my-library.css";
+import "./MyLibrary.css";
 import DashboardLayout from '../../Layout/DashboardLayout/DashboardLayout';
+import CardLayout from '../../Layout/cardLayout/CardLayout';
 import BackButton from '../../Components/BackButton/BackButton';
 
 const articles = [
@@ -59,9 +60,9 @@ function MyLibrary() {
         {/* <div className="frame-2923"> */}
           <BackButton location="/dashboard" />
         {/* </div> */}
-        <div className="my-library border-1px-onyx">
+        <div className="my-library">
           <h4 className="article-header">Articles</h4>
-          <div className="articles">
+          <CardLayout>
             {
              articles && articles.map(item => {
                 return (
@@ -77,9 +78,9 @@ function MyLibrary() {
                 )
               })
             }
-          </div>
+          </CardLayout>
           <h4 className="article-header">Videos</h4>
-          <div className="articles">
+          <CardLayout>
             {
              videos && videos.map(item => {
                 return (
@@ -91,7 +92,7 @@ function MyLibrary() {
                 )
               })
             }
-          </div>
+          </CardLayout>
         </div>
       </div>
     </div>
