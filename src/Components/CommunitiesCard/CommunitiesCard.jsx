@@ -1,5 +1,5 @@
 import React from "react";
-import Background from "../Background/Background";
+import Background from "../background/Background";
 import "./communities-card.css";
 
 const CommunitiesCard = ({data=[]}) => {

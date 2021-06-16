@@ -2,9 +2,9 @@ import React,{useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { listCommunities, searchCommunities } from "../../actions/CommunityActions";
+import { listCommunities, searchCommunities, createCommunity } from "../../actions/CommunityActions";
 import Button from "../../Components/Button/Button";
-import CommunitiesCard from "../../Components/CommunitiesCard/CommunitiesCard";
+import CommunitiesCard from "../../Components/communitiesCard/CommunitiesCard";
 import DragDrop from "../../Components/DragDrop/DragDrop";
 import Filter from "../../Components/Filter/Filter";
 import InputComponent from "../../Components/Input/InputComponent";
@@ -85,12 +85,16 @@ function AllCommunities ({setModalActive}) {
   const communitiesState = useSelector((state) => state.listCommunities);
   const {error, loading, communities} = communitiesState
   
+  //create community
+  const createCommunity = useSelector((state) => state.addCommunity);
+  const {success:createSuccess} = createCommunity
+  
   const dispatch = useDispatch()
   
   useEffect(() => {
     if(!search) dispatch(listCommunities());
     if(search) dispatch(searchCommunities(search));
-  }, [search, dispatch])
+  }, [search, dispatch, createSuccess]);
   return (
     <>
         <CommunityHeader setActive={setModalActive} search={search} setSearch={setSearch} />
@@ -139,7 +143,13 @@ const CommunityModal = ({setActive}) => {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
   const [userId, setUserId] = useState(0);
-  console.log(name);
+  const dispatch = useDispatch()
+  
+  function addCommunity () {
+    dispatch(createCommunity({files, name, desc, userId}))
+    setActive(false);
+  }
+  
   return(
     <div className='collection-modal-container'>
         <div>
@@ -149,9 +159,9 @@ const CommunityModal = ({setActive}) => {
             <InputComponent name="Community Name" text={name} changeHandler={setName} />
             <InputComponent name="Description" text={desc} changeHandler={setDesc} />
             <InputComponent name="User Id" text={userId} changeHandler={setUserId} />
-            <Button name="Create Community" />
+            <Button name="Create Community" clickHandler={addCommunity} />
           </div>
         </div>
       </div>
   )
-}
+};
