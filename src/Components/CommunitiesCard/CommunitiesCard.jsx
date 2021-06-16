@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { joinCommunity } from "../../actions/CommunityActions";
 import Background from "../background/Background";
-import "./communities-card.css";
+import "./CommunitiesCard.css";
 
 const CommunitiesCard = ({data=[]}) => {
   return (
@@ -50,6 +50,10 @@ const CommunityCard = ({community}) => {
     dispatch(joinCommunity(currentUserId, community.id));
       setFollower(!follower);
   }
+
+  const visitCommunity = () => {
+    
+  }
   return (
      <div className="community-card">
                   <Background image={community.attachment}>
@@ -66,7 +70,10 @@ const CommunityCard = ({community}) => {
                       </div>
                       {follower 
                       ? <button className="secondary-btn join-community-btn" onClick={followCommunity}>Join community</button>
-                      : <button className="secondary-btn join-community-btn" onClick={followCommunity}>Leave community</button>
+                      : <div className="community-switch-btn-group">
+                      <button className="secondary-btn unfollow-community-btn" onClick={followCommunity}>Unfollow community</button>
+                      <button className="secondary-btn join-community-btn" onClick={visitCommunity}>Visit community</button>
+                      </div>
                     }
                   </div>
                 </Background>

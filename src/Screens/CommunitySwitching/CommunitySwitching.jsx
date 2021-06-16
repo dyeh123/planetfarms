@@ -2,7 +2,7 @@ import React,{useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { listCommunities, searchCommunities, createCommunity } from "../../actions/CommunityActions";
+import { listCommunities, searchCommunities, createCommunity, listUserCommunities, searchUserCommunities } from "../../actions/CommunityActions";
 import Button from "../../Components/Button/Button";
 import CommunitiesCard from "../../Components/communitiesCard/CommunitiesCard";
 import DragDrop from "../../Components/DragDrop/DragDrop";
@@ -77,7 +77,7 @@ function App() {
 export default App;
 
 function AllCommunities ({setModalActive}) {
-  
+  const {pathname} = useLocation();
   const [search, setSearch] = useState(null)
 
    const userLogin = useSelector((state) => state.userLogin)
@@ -85,20 +85,32 @@ function AllCommunities ({setModalActive}) {
   const communitiesState = useSelector((state) => state.listCommunities);
   const {error, loading, communities} = communitiesState
   
+  const userCommunitiesState = useSelector((state) => state.listUserCommunities);
+  const {error:user_com_error, loading:user_com_loading, userCommunities} = userCommunitiesState
   //create community
   const createCommunity = useSelector((state) => state.addCommunity);
   const {success:createSuccess} = createCommunity
-  
   const dispatch = useDispatch()
-  
+  let userId = 24;
   useEffect(() => {
-    if(!search) dispatch(listCommunities());
-    if(search) dispatch(searchCommunities(search));
-  }, [search, dispatch, createSuccess]);
+        if(!search) dispatch(listCommunities());
+        if(search) dispatch(searchCommunities(search));
+
+        if(pathname==='/community-switching/my-communities') {
+          if(!search) dispatch(listUserCommunities(userId))
+          if(search) dispatch(searchUserCommunities(userId, search));
+        }
+  }, [search, dispatch, createSuccess, pathname]);
+
   return (
     <>
         <CommunityHeader setActive={setModalActive} search={search} setSearch={setSearch} />
-        {communities.length > 0 && <CommunitiesCard data={communities} />}
+        {
+          pathname==='/community-switching/my-communities' 
+          ? <CommunitiesCard data={userCommunities} />
+          : <CommunitiesCard data={communities} />
+        }
+         
     </>)  
 }
 
@@ -143,7 +155,6 @@ const CommunityModal = ({setActive}) => {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
   const [userId, setUserId] = useState(0);
-  const [follow, setFollow] = useState(false);
   const dispatch = useDispatch()
   
   function addCommunity () {
