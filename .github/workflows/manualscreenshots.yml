@@ -40,13 +40,13 @@ jobs:
         uses: swinton/screenshot-website@v1.x
         with:
           source: http://localhost:3000/login
-          destination: /screenshots
+          destination: /screenshot
           full-page: true
       - name: Screenshot Register
         uses: swinton/screenshot-website@v1.x
         with:
           source: http://localhost:3000/register
-          destination: /screenshots
+          destination: /screenshot
           full-page: true
       - name: Get Token
         run: |
@@ -58,7 +58,7 @@ jobs:
         uses: swinton/screenshot-website@v1.x
         with:
           source: http://localhost:3000/community-page-news
-          destination: /screenshots
+          destination: /screenshot
           full-page: true
           headers: '{Authorization: "Bearer ${{ env.TOKEN }}"}'
       - name: Sleep
