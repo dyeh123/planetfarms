@@ -46,6 +46,7 @@ jobs:
       - name: Planet Farms API
         run: |
           cd api
+          echo "getting repo"
           go get github.com/k1LoW/tbls
           echo "JWT_SECRET=secret" >> .env
           echo "DATABASE_NAME=${{ secrets.POSTGRES_DB }}" >> .env
