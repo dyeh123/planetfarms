@@ -1,6 +1,8 @@
 name: Alternative ER Diagram
 
 on:
+  push:
+    branches: [alternate-er-diagram]
   workflow_dispatch:
     inputs:
 
