@@ -46,6 +46,7 @@ jobs:
       - name: Planet Farms API
         run: |
           cd api
+          go get github.com/k1LoW/tbls
           echo "JWT_SECRET=secret" >> .env
           echo "DATABASE_NAME=${{ secrets.POSTGRES_DB }}" >> .env
           echo "DATABASE_USERNAME=${{ secrets.POSTGRES_USER }}" >> .env
